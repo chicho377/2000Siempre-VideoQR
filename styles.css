@@ -48,9 +48,9 @@ body {
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
-  bottom: -18px;
+  bottom: -13px;
   width: min(136%, 860px);
-  height: 190px;
+  height: 352px;
   background: var(--page-gray);
   border-radius: 50%;
 }
