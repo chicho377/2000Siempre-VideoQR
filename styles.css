@@ -1,0 +1,206 @@
+:root {
+  --blue-1: #5b82d8;
+  --blue-2: #3f67b8;
+  --blue-3: #2c4f9b;
+  --ink: #1a2642;
+  --muted: #617193;
+  --surface: #ffffff;
+  --social-bg: #f1f4fb;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  background: #e5e7ec;
+  font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+  color: var(--ink);
+  padding: 18px;
+}
+
+.phone-shell {
+  width: min(100%, 390px);
+  border: 4px solid #171a24;
+  border-radius: 38px;
+  background: var(--surface);
+  overflow: hidden;
+  box-shadow: 0 24px 42px rgba(8, 16, 38, 0.28);
+}
+
+.top-notch-wrap {
+  padding-top: 8px;
+  display: flex;
+  justify-content: center;
+  background: #fff;
+}
+
+.top-notch {
+  width: 110px;
+  height: 22px;
+  background: #111;
+  border-radius: 0 0 14px 14px;
+}
+
+.hero-frame {
+  position: relative;
+  background: linear-gradient(180deg, var(--blue-1) 0%, var(--blue-2) 60%, var(--blue-3) 100%);
+  padding: 22px 14px 18px;
+  text-align: center;
+  color: #fff;
+  overflow: hidden;
+}
+
+.hero-frame::before,
+.hero-frame::after {
+  content: "";
+  position: absolute;
+  bottom: -44px;
+  width: 58px;
+  height: 80px;
+  background: #fff;
+  border-radius: 35px;
+}
+
+.hero-frame::before {
+  left: -18px;
+}
+
+.hero-frame::after {
+  right: -18px;
+}
+
+.company {
+  margin: 8px 0 10px;
+  font-size: 1.06rem;
+  font-weight: 600;
+}
+
+.video-title {
+  margin: 0 0 16px;
+  font-size: clamp(2rem, 6.8vw, 2.2rem);
+  line-height: 1.1;
+  font-weight: 800;
+}
+
+.video-card {
+  position: relative;
+  z-index: 1;
+  background: #f2f2f2;
+  border-radius: 4px;
+  padding: 10px;
+}
+
+.video-player {
+  width: 100%;
+  display: block;
+  aspect-ratio: 9 / 16;
+  object-fit: cover;
+  background: #000;
+}
+
+.content {
+  padding: 14px;
+  background: #fff;
+}
+
+.description-title {
+  margin: 2px 0 14px;
+  font-size: 1.95rem;
+  font-weight: 400;
+  color: #5b6b8e;
+}
+
+.social-title {
+  margin: 0 0 12px;
+  font-size: 2.2rem;
+  font-weight: 400;
+}
+
+.social-list {
+  display: grid;
+  gap: 10px;
+}
+
+.social-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  color: var(--ink);
+  background: var(--social-bg);
+  padding: 10px 12px;
+  border-radius: 14px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.social-item:hover,
+.social-item:focus-visible {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 18px rgba(34, 58, 106, 0.15);
+}
+
+.social-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  color: #fff;
+  flex-shrink: 0;
+}
+
+.social-icon svg {
+  width: 24px;
+  height: 24px;
+}
+
+.facebook {
+  background: #3b5998;
+}
+
+.instagram {
+  background: linear-gradient(135deg, #f58529, #dd2a7b, #8134af, #515bd4);
+}
+
+.tiktok {
+  background: #121212;
+}
+
+.social-label {
+  flex: 1;
+  font-size: 1.6rem;
+}
+
+.arrow {
+  color: #8492ad;
+  font-size: 2rem;
+  line-height: 1;
+}
+
+.home-indicator {
+  width: 112px;
+  height: 6px;
+  border-radius: 99px;
+  margin: 14px auto 2px;
+  background: #000;
+}
+
+@media (max-width: 420px) {
+  body {
+    padding: 0;
+    background: #e5e7ec;
+  }
+
+  .phone-shell {
+    min-height: 100vh;
+    width: 100%;
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+  }
+}
