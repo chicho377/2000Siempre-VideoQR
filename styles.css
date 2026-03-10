@@ -57,9 +57,9 @@ body {
 
 .hero-inner,
 .content-inner {
-  width: min(100%, 390px);
+  width: min(100%, 470px);
   margin: 0 auto;
-  padding-inline: 14px;
+  padding-inline: 8px;
 }
 
 .hero-inner {
@@ -85,12 +85,12 @@ body {
 
 /* Marco blanco del video */
 .video-card {
-  width: min(100%, 350px);
+  width: 100%;
   margin: 0 auto;
   background: #fff;
-  border: 1px solid rgba(74, 113, 198, 0.6);
+  border: 0.5px solid rgba(74, 113, 198, 0.24);
   border-radius: 6px;
-  padding: 16px;
+  padding: 4px;
   box-shadow: 0 8px 20px rgba(17, 36, 78, 0.2);
 }
 
@@ -99,6 +99,8 @@ body {
   display: block;
   aspect-ratio: 9 / 15.6;
   object-fit: cover;
+  border: 0.5px solid #3b61b7;
+  border-radius: 2px;
   background: #000;
 }
 
