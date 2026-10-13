@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Chewy&family=Coiny&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+  html, body { background: #FFD6E4; }
+  a { color: inherit; text-decoration: none; }
+  @keyframes floaty { 0%,100% { transform: translateY(0) rotate(0deg); } 50% { transform: translateY(-14px) rotate(2deg); } }
+  @keyframes floaty2 { 0%,100% { transform: translateY(0) rotate(0deg); } 50% { transform: translateY(-10px) rotate(-3deg); } }
+  @keyframes pulseRing { 0% { transform: scale(1); opacity: .55; } 70%,100% { transform: scale(1.35); opacity: 0; } }
+  @keyframes spinSlow { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
+  @keyframes shine { from { background-position: -120% 0; } to { background-position: 220% 0; } }
+  @keyframes hueDrift { 0%,100% { transform: translate(0,0) scale(1); } 50% { transform: translate(18px,-22px) scale(1.15); } }
+  @keyframes modalPop { from { opacity: 0; transform: scale(.85); } to { opacity: 1; transform: scale(1); } }
+  @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+</style>
+</helmet>
+
+<div style="min-height:100dvh;width:100%;display:flex;justify-content:center;background:radial-gradient(120% 90% at 50% -10%, #fff0f6 0%, #FFD6E4 45%, #F69ACB 120%);position:relative;overflow:hidden;font-family:'Poppins',sans-serif;">
+
+  <!-- soft floating blobs -->
+  <div style="position:absolute;top:-80px;left:-60px;width:260px;height:260px;border-radius:50%;background:radial-gradient(circle at 30% 30%, #FFD6E4, #F69ACB);filter:blur(6px);opacity:.55;animation:hueDrift 12s ease-in-out infinite;"></div>
+  <div style="position:absolute;bottom:-90px;right:-70px;width:300px;height:300px;border-radius:50%;background:radial-gradient(circle at 30% 30%, #FF5391, #F69ACB);filter:blur(8px);opacity:.4;animation:hueDrift 15s ease-in-out infinite reverse;"></div>
+
+  <!-- floating deco icons -->
+  <i class="fa-solid fa-heart" style="position:absolute;top:12%;left:8%;font-size:20px;color:#FF5391;animation:floaty 6s ease-in-out infinite;opacity:.6;"></i>
+  <i class="fa-solid fa-heart" style="position:absolute;top:22%;right:9%;font-size:16px;color:#F69ACB;animation:floaty2 7s ease-in-out infinite;opacity:.6;"></i>
+  <i class="fa-solid fa-star" style="position:absolute;top:48%;right:7%;font-size:16px;color:#FF5391;animation:floaty 9s ease-in-out infinite;opacity:.5;"></i>
+
+  <div style="width:100%;max-width:520px;padding:44px 26px 60px;position:relative;z-index:2;display:flex;flex-direction:column;align-items:center;">
+
+    <!-- LOGO -->
+    <div style="position:relative;width:172px;height:172px;margin-bottom:6px;animation:fadeUp .9s ease both;">
+      <div style="position:absolute;inset:-10px;border-radius:50%;border:2px solid #FF5391;animation:pulseRing 3.2s ease-out infinite;"></div>
+      <div style="position:absolute;inset:-10px;border-radius:50%;border:2px solid #FF5391;animation:pulseRing 3.2s ease-out infinite;animation-delay:1.6s;"></div>
+      <div style="position:absolute;inset:-16px;border-radius:50%;border:1.5px dashed #DD0675;opacity:.45;animation:spinSlow 26s linear infinite;"></div>
+      <div style="position:relative;width:172px;height:172px;border-radius:50%;overflow:hidden;box-shadow:0 18px 40px -12px rgba(221,6,117,.5), 0 0 0 6px #fff;animation:floaty 7s ease-in-out infinite;">
+        <img src="assets/logo.png" alt="Caffi Crochet" style="width:100%;height:100%;object-fit:cover;display:block;">
+      </div>
+    </div>
+
+    <!-- NAME -->
+    <h1 style="font-family:'Coiny',cursive;font-weight:400;font-size:clamp(30px,11vw,48px);line-height:1;color:#DD0675;margin-top:18px;letter-spacing:.5px;white-space:nowrap;animation:fadeUp .9s ease .1s both;">Caffi Crochet</h1>
+    <div style="display:flex;align-items:center;gap:10px;margin-top:12px;animation:fadeUp .9s ease .2s both;">
+      <span style="height:2px;width:30px;border-radius:2px;background:linear-gradient(90deg,transparent,#FF5391);"></span>
+      <p style="font-family:'Coiny',cursive;font-weight:400;font-size:15px;color:#FF5391;letter-spacing:.3px;">Amigurumis hechos con amor</p>
+      <span style="height:2px;width:30px;border-radius:2px;background:linear-gradient(90deg,#FF5391,transparent);"></span>
+    </div>
+
+    <!-- SOCIAL LINKS -->
+    <div style="width:100%;display:flex;flex-direction:column;gap:14px;margin-top:34px;">
+      <sc-for list="{{ socials }}" as="s" hint-placeholder-count="4">
+        <a href="{{ s.url }}" target="_blank" rel="noopener" style="position:relative;overflow:hidden;display:flex;align-items:center;gap:14px;padding:13px 16px;border-radius:20px;background:#DD0675;box-shadow:0 10px 22px -12px rgba(221,6,117,.4);transition:transform .25s ease, box-shadow .25s ease;cursor:pointer;" style-hover="transform:translateY(-3px) scale(1.015);box-shadow:0 18px 34px -12px rgba(221,6,117,.55);">
+          <span style="position:absolute;inset:0;background:linear-gradient(100deg,transparent 20%,rgba(255,255,255,.4) 50%,transparent 80%);background-size:200% 100%;animation:shine 3s linear infinite;"></span>
+          <span style="position:relative;width:46px;height:46px;min-width:46px;border-radius:14px;display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,.22);"><i class="{{ s.icon }}" style="font-size:22px;color:#fff;"></i></span>
+          <span style="position:relative;flex:1;display:flex;flex-direction:column;line-height:1.2;">
+            <span style="font-family:'Coiny',cursive;font-size:18px;color:#fff;">{{ s.label }}</span>
+            <span style="font-size:12px;color:rgba(255,255,255,.85);font-weight:300;">{{ s.handle }}</span>
+          </span>
+          <i class="fa-solid fa-arrow-right-long" style="position:relative;font-size:15px;color:rgba(255,255,255,.9);"></i>
+        </a>
+      </sc-for>
+    </div>
+
+    <!-- GALLERY CAROUSEL -->
+    <div style="width:100%;margin-top:44px;animation:fadeUp .9s ease both;">
+      <div style="display:flex;align-items:center;justify-content:center;gap:10px;margin-bottom:18px;">
+        <i class="fa-solid fa-heart" style="font-size:13px;color:#DD0675;"></i>
+        <h2 style="font-family:'Chewy',cursive;font-weight:400;font-size:24px;color:#DD0675;letter-spacing:.3px;">Nuestros Amigurumis</h2>
+        <i class="fa-solid fa-heart" style="font-size:13px;color:#DD0675;"></i>
+      </div>
+
+      <div style="position:relative;width:100%;overflow:hidden;border-radius:22px;">
+        <div style="display:flex;width:100%;transform:translateX({{ trackX }});transition:{{ trackTransition }};">
+          <sc-for list="{{ slides }}" as="pg" hint-placeholder-count="4">
+            <div style="min-width:100%;display:grid;grid-template-columns:1fr 1fr;gap:14px;padding:4px;">
+              <sc-for list="{{ pg.items }}" as="g" hint-placeholder-count="4">
+                <div onclick="{{ g.open }}" style="aspect-ratio:1;border-radius:20px;overflow:hidden;box-shadow:0 10px 24px -12px rgba(221,6,117,.5);border:3px solid #fff;cursor:pointer;position:relative;">
+                  <img src="{{ g.src }}" alt="Amigurumi" style="width:100%;height:100%;object-fit:cover;display:block;">
+                  <span style="position:absolute;bottom:8px;right:8px;width:28px;height:28px;border-radius:50%;background:rgba(221,6,117,.85);display:flex;align-items:center;justify-content:center;"><i class="fa-solid fa-magnifying-glass-plus" style="color:#fff;font-size:12px;"></i></span>
+                </div>
+              </sc-for>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+
+      <!-- carousel controls -->
+      <div style="display:flex;align-items:center;justify-content:center;gap:16px;margin-top:18px;">
+        <button onclick="{{ prev }}" style="width:40px;height:40px;border:none;border-radius:50%;background:#fff;color:#DD0675;cursor:pointer;box-shadow:0 8px 18px -8px rgba(221,6,117,.5);display:flex;align-items:center;justify-content:center;font-size:15px;transition:transform .2s ease;" style-hover="transform:scale(1.1);"><i class="fa-solid fa-chevron-left"></i></button>
+        <div style="display:flex;gap:8px;">
+          <sc-for list="{{ dots }}" as="d" hint-placeholder-count="4">
+            <span onclick="{{ d.go }}" style="{{ d.dotStyle }}"></span>
+          </sc-for>
+        </div>
+        <button onclick="{{ next }}" style="width:40px;height:40px;border:none;border-radius:50%;background:#fff;color:#DD0675;cursor:pointer;box-shadow:0 8px 18px -8px rgba(221,6,117,.5);display:flex;align-items:center;justify-content:center;font-size:15px;transition:transform .2s ease;" style-hover="transform:scale(1.1);"><i class="fa-solid fa-chevron-right"></i></button>
+      </div>
+    </div>
+
+    <!-- CTA -->
+    <a href="{{ ctaUrl }}" target="_blank" rel="noopener" style="margin-top:40px;position:relative;overflow:hidden;padding:17px 42px;border-radius:40px;background:#DD0675;color:#fff;font-family:'Coiny',cursive;font-size:16px;letter-spacing:.4px;box-shadow:0 16px 32px -10px rgba(221,6,117,.6);display:flex;align-items:center;gap:9px;transition:transform .25s ease;" style-hover="transform:translateY(-2px) scale(1.03);">
+      <span style="position:absolute;inset:0;background:linear-gradient(100deg,transparent 20%,rgba(255,255,255,.45) 50%,transparent 80%);background-size:200% 100%;animation:shine 3s linear infinite;"></span>
+      <span style="position:relative;display:flex;align-items:center;gap:9px;"><i class="fa-brands fa-facebook-messenger"></i> Hacer un pedido</span>
+    </a>
+
+    <!-- footer -->
+    <div style="margin-top:34px;display:flex;flex-direction:column;align-items:center;gap:6px;animation:fadeUp .9s ease both;">
+      <div style="display:flex;gap:12px;color:#FF5391;font-size:12px;"><i class="fa-solid fa-heart"></i><i class="fa-regular fa-heart"></i><i class="fa-solid fa-heart"></i></div>
+      <p style="font-family:'Coiny',cursive;font-size:15px;color:#DD0675;">Gracias por visitarnos ♡</p>
+      <p style="font-size:11px;color:#c76d97;letter-spacing:1px;">© Caffi Crochet 2026</p>
+    </div>
+
+  </div>
+
+  <!-- MODAL -->
+  <sc-if value="{{ modalImg }}" hint-placeholder-val="">
+    <div onclick="{{ closeModal }}" style="position:fixed;inset:0;z-index:50;background:rgba(221,6,117,.35);backdrop-filter:blur(6px);display:flex;align-items:center;justify-content:center;padding:24px;animation:fadeIn .25s ease;">
+      <div style="position:relative;width:100%;max-width:440px;animation:modalPop .3s cubic-bezier(.34,1.56,.64,1);">
+        <img src="{{ modalImg }}" alt="Amigurumi" style="width:100%;border-radius:26px;border:4px solid #fff;box-shadow:0 30px 60px -20px rgba(221,6,117,.8);display:block;">
+        <button onclick="{{ closeModal }}" style="position:absolute;top:-14px;right:-14px;width:44px;height:44px;border:none;border-radius:50%;background:#DD0675;color:#fff;font-size:18px;cursor:pointer;box-shadow:0 8px 18px -6px rgba(221,6,117,.9);display:flex;align-items:center;justify-content:center;"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+    </div>
+  </sc-if>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:420,&quot;height&quot;:900},&quot;instagram&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;https://www.instagram.com/caffi_crochet?utm_source=ig_web_button_share_sheet&amp;igsh=ZDNlZDc0MzIxNw==&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Redes&quot;},&quot;tiktok&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;https://www.tiktok.com/@caffi.crochet&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Redes&quot;},&quot;whatsapp&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;https://wa.me/50683639663&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Redes&quot;},&quot;facebook&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;https://www.facebook.com/profile.php?id=61572357890355&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Redes&quot;}}">
+class Component extends DCLogic {
+  state = { modalImg: null, index: 0, animate: true };
+
+  componentDidMount() {
+    this.startTimer();
+  }
+  componentWillUnmount() { clearInterval(this.timer); }
+
+  startTimer() {
+    clearInterval(this.timer);
+    this.timer = setInterval(() => this.goNext(), 4500);
+  }
+
+  goNext() {
+    const n = this.pageCount;
+    this.setState(s => ({ index: s.index + 1, animate: true }), () => {
+      if (this.state.index >= n) {
+        setTimeout(() => this.setState({ index: 0, animate: false }), 580);
+      }
+    });
+  }
+
+  goPrev() {
+    const n = this.pageCount;
+    this.startTimer();
+    if (this.state.index <= 0) {
+      // saltar sin animación al clon final, luego animar hacia atrás
+      this.setState({ index: n, animate: false }, () => {
+        requestAnimationFrame(() => requestAnimationFrame(() =>
+          this.setState({ index: n - 1, animate: true })
+        ));
+      });
+    } else {
+      this.setState(s => ({ index: s.index - 1, animate: true }));
+    }
+  }
+
+  goTo(p) {
+    this.startTimer();
+    this.setState({ index: p, animate: true });
+  }
+
+  renderVals() {
+    const socials = [
+      { label: "Instagram", handle: "@caffi_crochet", icon: "fa-brands fa-instagram", url: this.props.instagram ?? "https://instagram.com", shineDelay: "animation-delay:0s;" },
+      { label: "TikTok", handle: "@caffi.crochet", icon: "fa-brands fa-tiktok", url: this.props.tiktok ?? "https://tiktok.com", shineDelay: "animation-delay:.4s;" },
+      { label: "WhatsApp", handle: "Escríbenos", icon: "fa-brands fa-whatsapp", url: this.props.whatsapp ?? "https://wa.me/", shineDelay: "animation-delay:.8s;" },
+      { label: "Facebook", handle: "Caffi Crochet", icon: "fa-brands fa-facebook-f", url: this.props.facebook ?? "https://facebook.com", shineDelay: "animation-delay:1.2s;" },
+    ];
+
+    // 16 campos listos (ami1..ami16) — 4 páginas de 4
+    const imgs = [];
+    for (let i = 1; i <= 16; i++) imgs.push("assets/ami" + i + ".jpg");
+    const perPage = 4;
+    this.pageCount = Math.ceil(imgs.length / perPage);
+    const n = this.pageCount;
+    const activePage = ((this.state.index % n) + n) % n;
+
+    const buildPage = (p) => ({
+      items: imgs.slice(p * perPage, p * perPage + perPage).map(src => ({
+        src, open: () => this.setState({ modalImg: src })
+      }))
+    });
+
+    const pages = [];
+    for (let p = 0; p < n; p++) pages.push(buildPage(p));
+    // clon de la primera página al final para el bucle sin retroceso
+    const slides = pages.concat([buildPage(0)]);
+
+    const dots = [];
+    for (let p = 0; p < n; p++) {
+      dots.push({
+        go: () => this.goTo(p),
+        dotStyle: "width:" + (p === activePage ? "24px" : "8px") + ";height:8px;border-radius:4px;cursor:pointer;transition:all .3s ease;background:" + (p === activePage ? "#DD0675" : "rgba(221,6,117,.3)") + ";"
+      });
+    }
+
+    return {
+      socials,
+      slides,
+      dots,
+      trackX: (-this.state.index * 100) + "%",
+      trackTransition: this.state.animate ? "transform .58s cubic-bezier(.65,.05,.36,1)" : "none",
+      prev: () => this.goPrev(),
+      next: () => { this.startTimer(); this.goNext(); },
+      modalImg: this.state.modalImg,
+      closeModal: () => this.setState({ modalImg: null }),
+      ctaUrl: "https://m.me/61572357890355",
+    };
+  }
+}
+</script>
+</body>
+</html>

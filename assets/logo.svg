@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="240" height="240" viewBox="0 0 240 240">
+  <defs><linearGradient id="blue" x2=".8" y2="1"><stop stop-color="#316bea"/><stop offset="1" stop-color="#12378c"/></linearGradient></defs>
+  <circle cx="120" cy="120" r="120" fill="url(#blue)"/>
+  <circle cx="120" cy="120" r="108" fill="none" stroke="#ffffff" stroke-opacity=".18"/>
+  <text x="109" y="132" text-anchor="middle" font-family="Arial,sans-serif" font-size="106" font-weight="900" font-style="italic" fill="white">S</text>
+  <path d="m134 109 35-37h-24V60h45v45h-12V81l-35 37z" fill="#ffcf58"/>
+  <text x="120" y="164" text-anchor="middle" font-family="Arial,sans-serif" font-size="22" font-weight="700" fill="white">2000Siempre</text>
+  <text x="120" y="184" text-anchor="middle" font-family="Arial,sans-serif" font-size="8" letter-spacing="2" fill="#cbdcff">JUNTOS, SIEMPRE</text>
+</svg>
